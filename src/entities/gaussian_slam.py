@@ -20,6 +20,7 @@ from src.utils.io_utils import save_dict_to_ckpt, save_dict_to_yaml
 from src.utils.mapper_utils import exceeds_motion_thresholds
 from src.utils.utils import np2torch, setup_seed, torch2np
 from src.utils.vis_utils import *  # noqa - needed for debugging
+from src.entities.motion import Motion
 
 
 class GaussianSLAM(object):
@@ -57,6 +58,7 @@ class GaussianSLAM(object):
         self.logger = Logger(self.output_path, config["use_wandb"])
         self.mapper = Mapper(config["mapping"], self.dataset, self.logger)
         self.tracker = Tracker(config["tracking"], self.dataset, self.logger)
+        self.motion = Motion(config, self.dataset, self.logger)
 
         print('Tracking config')
         pprint.PrettyPrinter().pprint(config["tracking"])
@@ -130,6 +132,8 @@ class GaussianSLAM(object):
         self.submap_id = 0
 
         for frame_id in range(len(self.dataset)):
+
+
 
             if frame_id in [0, 1]:
                 estimated_c2w = self.dataset[frame_id][-1]

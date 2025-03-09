@@ -4,6 +4,7 @@ import random
 import numpy as np
 import open3d as o3d
 import torch
+import torch.nn.functional as F
 from gaussian_rasterizer import GaussianRasterizationSettings, GaussianRasterizer
 
 
@@ -207,3 +208,4 @@ def batch_search_faiss(indexer, query_points, k):
     ids = torch.cat(ids_list, dim=0)
 
     return distances, ids
+

@@ -1,17 +1,17 @@
 name: gslam
 channels:
-  - pytorch
-  - nvidia
-  - nvidia/label/cuda-12.1.0
+  # - pytorch
+  # - nvidia
+  # - nvidia/label/cuda-12.1.0
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10
+  # - python=3.10
   - faiss-gpu=1.8.0
-  - cuda-toolkit=12.1
-  - pytorch=2.1.2
-  - pytorch-cuda=12.1 
-  - torchvision=0.16.2
+  # - cuda-toolkit=12.1
+  # - pytorch=2.1.2
+  # - pytorch-cuda=12.1 
+  # - torchvision=0.16.2
   - pip
   - pip:
       - open3d==0.18.0

@@ -32,6 +32,10 @@ tracking:
   alpha_thre: 0.98
   soft_alpha: True
   mask_invalid_depth: False
+flow:
+  flow_model: 'gma'
+  checkpoint: "checkpoints/gma-things.pth"
+  window_size: 4
 cam:
   H: 680
   W: 1200
